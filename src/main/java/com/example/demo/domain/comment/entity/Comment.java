@@ -13,12 +13,11 @@ public class Comment {
     @Id
     @GeneratedValue
     @Column(name = "comment_id")
-    private long id;
+    private Long id;
 
-    private String contents;
+    private String content;
 
     @ManyToOne
     @JoinColumn(name = "member_id")
     private Member member;
-
 }
