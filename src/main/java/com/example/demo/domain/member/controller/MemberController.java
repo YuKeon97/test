@@ -5,6 +5,7 @@ import com.example.demo.domain.member.dto.UpdateMemberDto;
 import com.example.demo.domain.member.entity.Member;
 import com.example.demo.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,8 +43,9 @@ public class MemberController {
     }
 
     @PutMapping ("/{id}")
-    public Member update(@RequestBody UpdateMemberDto dto) {
-        return memberService.updateMember(dto);
+    public Member update(@PathVariable Long id,
+                         @RequestBody UpdateMemberDto dto) {
+        return memberService.updateMember(id, dto);
     }
 
     @GetMapping("/")

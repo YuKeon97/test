@@ -37,8 +37,8 @@ public class MemberService {
         return dto;
     }
 
-    public Member updateMember(UpdateMemberDto dto) {
-        Member result = memberRepository.findById(dto.getId()).orElseThrow(null);
+    public Member updateMember(Long id, UpdateMemberDto dto) {
+        Member result = memberRepository.findById(id).orElseThrow(null);
         result.setEmail(dto.getEmail());
         result.setName(dto.getName());
         memberRepository.save(result);
